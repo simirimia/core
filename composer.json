@@ -4,12 +4,17 @@
     "require": {
         "monolog/monolog": "~1"
     },
-    "license": "BSD/GPL",
+    "license": "BSD",
     "authors": [
         {
             "name": "simirimia",
             "email": "simirimia@triosolutions.at"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+      "psr-4": {
+        "Simirimia\\Core\\" : "Simirimia/Core/src"
+      }
+    }
 }
