@@ -1,0 +1,15 @@
+{
+    "name": "simirimia/core",
+    "description": "some useful stuff",
+    "require": {
+        "monolog/monolog": "~1"
+    },
+    "license": "BSD/GPL",
+    "authors": [
+        {
+            "name": "simirimia",
+            "email": "simirimia@triosolutions.at"
+        }
+    ],
+    "minimum-stability": "stable"
+}
