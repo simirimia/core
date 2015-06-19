@@ -16,4 +16,9 @@ interface Config
      * @return bool
      */
     public function isSetupMode();
+
+    /**
+     * @return string
+     */
+    public function getLogFilePath();
 }
