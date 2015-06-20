@@ -13,6 +13,7 @@ namespace Simirimia\Core\ResultRenderer;
 use Simirimia\Core\Result\ArrayResult;
 use Simirimia\Core\Result\CompoundResult;
 use Simirimia\Core\Result\FilePathResult;
+use Simirimia\Core\Result\JsonResult;
 use Simirimia\Core\Result\Result;
 
 class Renderer
@@ -27,7 +28,9 @@ class Renderer
         if ( $result instanceof ArrayResult ) {
             return ArrayResultRenderer::render( $result );
         } elseif ( $result instanceof FilePathResult ) {
-            return FilePathRenderer::render( $result );
+            return FilePathRenderer::render($result);
+        } elseif ( $result instanceof JsonResult ) {
+            return JsonResultRenderer::render( $result );
         } elseif ( $result instanceof CompoundResult ) {
             $results = $result->getResults();
             $total = '[';
