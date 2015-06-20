@@ -21,7 +21,7 @@ class JsonResultRenderer implements ResultRenderer
             throw new \InvalidArgumentException( '$result needs to be of type JsonResult' );
         }
 
-        return $result;
+        return $result->getJsonString();
     }
 
 }
