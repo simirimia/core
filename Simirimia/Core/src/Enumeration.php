@@ -1,0 +1,28 @@
+<?php
+/*
+ * This file is part of the simirimia/core package.
+ *
+ * (c) https://github.com/simirimia
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Simirimia\Core;
+
+use \SplEnum;
+
+abstract class Enumeration extends SplEnum
+{
+    public static function hasKey( $key )
+    {
+        try {
+            $enumClassName = get_called_class();
+            new $enumClassName($key);
+            return true;
+        } catch ( \Exception $e ) {
+            return false;
+        }
+    }
+
+}
