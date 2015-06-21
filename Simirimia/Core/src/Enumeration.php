@@ -15,7 +15,7 @@ use \InvalidArgumentException;
 
 abstract class Enumeration
 {
-    const __default = null ;
+    const __default = null;
 
     /**
      * @var mixed
@@ -23,14 +23,19 @@ abstract class Enumeration
     private $value;
 
     /**
+     * Initial Value may be the name and/or the value of any defined class as well as null to select the default value
+     *
      * @param mixed $initialValue
      */
     public function __construct ( $initialValue = null )
     {
-        if ( in_array( $initialValue, $this->getConstList( true ) )) {
+        $constants = $this->getConstList( true );
+        if ( in_array( $initialValue, $constants )) {
             $this->value = $initialValue;
         } elseif( $initialValue === null ) {
-            $this->value = constant( get_called_class() . '::__default' );
+            $this->value = constant(get_called_class() . '::__default');
+        } elseif( array_key_exists( $initialValue, $constants ) ) {
+            $this->value = $constants[$initialValue];
         } else {
             throw new InvalidArgumentException( 'Invalid value: ' . $initialValue );
         }
